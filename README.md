@@ -30,10 +30,10 @@ $ nodebrew use v7.5.0
 
 $ vim ~/.bash_profile
 
-# add this code in .bash_profile.
+# Add this code in bash_profile. And press " i " key to insert code with vim.
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# then push three keys to save and close .bash_profile.
+# Then press three keys to save and close bash_profile.
 :wq
 
 $ source ~/.bash_profile
