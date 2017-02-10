@@ -13,7 +13,7 @@ $ brew -v
 homebrew x.x.x
 ```
 
-Then, with homebrew, install nodebrew which is used to manage nodejs.
+Then, with homebrew, install nodebrew which is in use to manage nodejs.
 ```
 $ brew install nodebrew
 
