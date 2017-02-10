@@ -28,6 +28,16 @@ $ nodebrew install-binary v7.5.0
 
 $ nodebrew use v7.5.0
 
+$ vim ~/.bash_profile
+
+# add this code in .bash_profile.
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# then push two keys to save and close .bash_profile.
+:wq
+
+$ source ~/.bash_profile
+
 $ node -v
 v7.5.0
 ```
