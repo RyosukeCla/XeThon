@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XeThon</title>
+</head>
+
+<body>
+  <div id="root-container"></div>
+</body>
+
+<script>
+window.onload = function() {
+  require("babel-core/register")({
+    "presets": ["es2015", "react"]
+  });
+  require("./app/frontend/Main");
+}
+</script>
+
+</html>
