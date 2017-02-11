@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+// config
+@import "config/color-palette";
+
+// reset
+@import "common/reset";
+
+// Components
+@import "components/header";
+@import "components/flex-container.scss";
+@import "components/resizable-flex-box";
+@import "components/resize-handle";

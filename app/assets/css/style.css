@@ -1,0 +1,1 @@
+html,body,div{margin:0;padding:0}.test div{padding:0}.FlexContainer{display:flex;flex-direction:row;width:100%;height:calc(100vh - 56px)}.ResizableFlexBox{height:inherit;max-width:100%;flex-shrink:1}.ResizeHandle{height:inherit;width:5;flex-shrink:1}
