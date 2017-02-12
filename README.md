@@ -63,6 +63,19 @@ And, if you want to build this app, try this command.
 $ npm run build
 ```
 
+## Utilities
+
+1. generate a bunch of react component with redux and scss
+```
+$ bin/react/react.sh generate <ComponentName>
+```
+
+2. auto-compile sass
+```
+$ npm run sass
+```
+
+### gen a bunch of react component with redux and scss
 If you want to create set of react components with redux, run this command.
 ```
 $ bin/react/react.sh generate <ComponentName>
