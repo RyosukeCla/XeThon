@@ -76,7 +76,7 @@ $ npm run sass
 ```
 
 ### gen a bunch of react component with redux and scss
-Before using this command, you have to check weather gnu-sed is installed in your os or not. This is because gnu-sed is in use to auto-import. So if you don't have gnu-sed, install it with homebrew.
+Before using this command, you have to check weather gnu-sed is installed in your os or not. That is because this generator uses gnu-sed to auto-import. So if you don't have gnu-sed, install it with homebrew.
 ```
 $ brew install gnu-sed
 ```
