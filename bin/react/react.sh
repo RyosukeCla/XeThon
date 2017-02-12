@@ -1,16 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 COMMAND=$1
-TYPE=$2
-NAME=$3
+NAME=$2
 DIR=`dirname $0`/../..
-CREATE_FILE_PATH=$DIR/app/frontend/components/"$NAME".jsx
+CREATE_FILE_PATH=$DIR/app/frontend
 TEMPLATE_FILE_PATH=`dirname $0`/template
 HELP="
 ==== HELP ===\n
-$ react g/generate <TYPE> <NAME>\n
-<TYPE>: \n
-\t      component  \n
+$ react g/generate <NAME>
 "
 
 if [ "$COMMAND" = "h" ] || [ "$COMMAND" = "help" ] || [ $# -eq 0 ]; then
@@ -19,18 +16,32 @@ if [ "$COMMAND" = "h" ] || [ "$COMMAND" = "help" ] || [ $# -eq 0 ]; then
 fi
 
 # 3 arguments
-if [ $# -ne 3 ]
+if [ $# -ne 2 ]
 then
     echo $HELP;
     exit 1;
 fi
 
 if [ "$COMMAND" = "g" -o "$COMMAND" = "generate" ]; then
-  if [ "$TYPE" = "component" ]; then
-    echo "create frontend/components/$NAME.jsx"
-    cp -i $TEMPLATE_FILE_PATH/react/component.jsx $CREATE_FILE_PATH
-    perl -pi -e s/NAME/"$NAME"/ $CREATE_FILE_PATH
-    exit 1;
-  fi
+  v=$NAME
+  C_NAME=`echo ${v:0:1} | tr  '[a-z]' '[A-Z]'`${v:1}
+  S_NAME=`echo ${v:0:1} | tr  '[A-Z]' '[a-z]'`${v:1}
 
+  mkdir $CREATE_FILE_PATH/$S_NAME
+
+  CREATE_FILE_PATH=$DIR/app/frontend/$S_NAME
+
+  cp -i $TEMPLATE_FILE_PATH/react/component.jsx $CREATE_FILE_PATH/$C_NAME.jsx
+  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/$C_NAME.jsx
+  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/$C_NAME.jsx
+
+  cp -i $TEMPLATE_FILE_PATH/react/action.jsx $CREATE_FILE_PATH/${S_NAME}Action.jsx
+  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/${S_NAME}Action.jsx
+  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/${S_NAME}Action.jsx
+
+  cp -i $TEMPLATE_FILE_PATH/react/reducer.jsx $CREATE_FILE_PATH/${S_NAME}Reducer.jsx
+  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/${S_NAME}Reducer.jsx
+  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/${S_NAME}Reducer.jsx
+
+  exit 1;
 fi

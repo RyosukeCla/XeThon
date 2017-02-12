@@ -4,8 +4,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import xethonTheme from './theme/xethonTheme';
-import { Provider } from 'react-redux'
-import App from './App'
+import App from './App';
+
+import { Provider } from 'react-redux';
+import configStore from './configStore';
 
 class Main extends React.Component {
   muiTheme() {
@@ -22,11 +24,16 @@ class Main extends React.Component {
   }
 }
 
-
+// material-ui
 injectTapEventPlugin();
-ReactDOM.render(
 
+// redux
+const store = configStore();
+
+ReactDOM.render(
+  <Provider store={store}>
     <Main />
+  </Provider>
   ,
   document.getElementById('root-container')
 );
