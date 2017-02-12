@@ -76,11 +76,11 @@ $ npm run sass
 ```
 
 ### gen a bunch of react component with redux and scss
-If you want to create set of react components with redux, run this command.
+If you want to create a set of react component with redux, run this command.
 ```
 $ bin/react/react.sh generate <ComponentName>
 ```
-Domain folder and files (component, reducer, action, scss) will be created. And reducer and scss will be auto-imported to rootReducer.jsx and style.scss.
+Domain folder and files (component, reducer, action, scss) will be created. And reducer and scss will be imported to rootReducer.jsx and style.scss automatically.
 
 ```
 app/frontend/
