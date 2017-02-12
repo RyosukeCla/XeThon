@@ -62,3 +62,35 @@ And, if you want to build this app, try this command.
 ```
 $ npm run build
 ```
+
+If you want to create set of react components with redux, run this command.
+```
+$ bin/react/react.sh generate <ComponentName>
+```
+Domain folder and files (component, reducer, action, scss) will be created. And reducer and scss will be auto-imported to rootReducer.jsx and style.scss.
+
+```
+app/frontend/
+componentName _ ComponentName.jsx
+             |_ componentNameAction.jsx
+             |- componentNameReducer.jsx
+
+app/frontend/assets/sass/component/_compoentName.scss
+```
+```
+app/frontend/rootReducer.jsx
+
+//reducers import
+import componentName from './componentName/componentName';
+
+const rootReducer = combineReducers({
+//reducers
+  componentName,
+});
+```
+```
+app/assets/sass/style.scss
+
+//components
+@import "components/compoentName";
+```
