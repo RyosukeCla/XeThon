@@ -86,7 +86,7 @@ Domain folder and files (component, reducer, action, scss) will be created. And 
 app/frontend/
 componentName _ ComponentName.jsx
              |_ componentNameAction.jsx
-             |- componentNameReducer.jsx
+             |_ componentNameReducer.jsx
 
 app/frontend/assets/sass/component/_compoentName.scss
 ```
