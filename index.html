@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>XeThon</title>
   <link rel="stylesheet" type="text/css"
+        href="./node_modules/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" type="text/css"
         href="./app/assets/css/style.css">
 </head>
 
@@ -13,6 +15,10 @@
 
 <script>
 window.onload = function() {
+  // codemirror addon
+  require("codemirror/addon/selection/active-line");
+  require("codemirror/addon/display/rulers");
+
   require("babel-core/register")({
     "presets": ["es2015", "react"]
   });

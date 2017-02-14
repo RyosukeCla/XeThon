@@ -1,12 +1,16 @@
 @charset "UTF-8";
 
 //config
+@import "config/config";
 @import "config/color-palette";
+@import "config/theme";
+@import "config/dracula-theme";
 
 //reset
 @import "common/reset";
 
 //components
+@import "components/codeEditor";
 @import "components/resizableLayout";
 @import "components/header";
 @import "components/flex-container.scss";

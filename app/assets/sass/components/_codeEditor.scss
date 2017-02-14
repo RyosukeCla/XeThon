@@ -1,0 +1,55 @@
+.CodeEditor {
+  height: inherit;
+
+  .public-DraftEditor-content {
+    height: $layoutHeight;
+    overflow: auto;
+  }
+}
+
+.CodeMirrorContainer {
+  height: inherit;
+}
+
+.CodeMirrorTextarea {
+  font-family: Inconsolata, 'Myrica', Monaco, Consolas, Courier;
+  font-size: 12pt;
+  line-height: 1.4em;
+}
+
+.CodeMirror {
+  //font-family:Inconsolata, Monaco, Consolas, 'Courier New', Courier ;
+  //font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-family: Inconsolata, 'Myrica', Monaco, Consolas, Courier;
+  font-size: 12pt;
+  //vertical-align: baseline;
+  height: inherit;
+  line-height: 1.4em;
+
+  background-color: $editor-bg !important;
+}
+
+.CodeMirror-focused {
+
+}
+
+.CodeMirror-gutters {
+  border-right: none;
+  background-color: $editor-bg !important;
+  white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+  color: $editor-gutters-font !important;
+}
+
+.CodeMirror-selected {
+  background-color: $bluegray600;
+}
+
+.CodeMirror-activeline-gutter {
+  background-color: $editor-cursor;
+}
+.CodeMirror-activeline-background {
+  background-color: $editor-cursor;
+}

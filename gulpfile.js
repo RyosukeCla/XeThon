@@ -1,8 +1,15 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
+var sassDir = './app/assets/sass';
+var src = [
+  sassDir+"/**/*.scss",
+  sassDir+"/common/**/*.scss",
+  sassDir+"/components/**/*.scss",
+  sassDir+"/config/**/*.scss"
+];
 gulp.task('sass', function() {
-  gulp.src('./app/assets/sass/**/*.scss')
+  gulp.src(src)
     .pipe(sass({
       outputStyle: 'compressed'
     })).on('error', sass.logError)
@@ -10,5 +17,5 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', ['sass'], function () {
-  gulp.watch('./app/assets/sass/**/*.scss', ['sass']);
+  gulp.watch(src, ['sass']);
 });

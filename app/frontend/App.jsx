@@ -8,16 +8,21 @@ import Drawer from 'material-ui/Drawer/Drawer';
 import FlexContainer from './components/FlexContainer';
 import ResizableFlexBox from './components/ResizableFlexBox';
 
+import ResizableLayout from './resizableLayout/ResizableLayout';
+
 export default class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <FlexContainer>
-          <ResizableFlexBox />
-          <ResizableFlexBox flexGrow={1}/>
-        </FlexContainer>
+        <ResizableLayout />
       </div>
     );
   }
 }
+/*
+<FlexContainer>
+  <ResizableFlexBox />
+  <ResizableFlexBox flexGrow={1}/>
+</FlexContainer>
+*/
