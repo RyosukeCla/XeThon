@@ -4,3 +4,4 @@ npm-debug.log
 .*.swp
 node_modules/
 XeThon-darwin-x64
+*.pyc
