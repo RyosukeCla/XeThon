@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ApiTest from './components/ApiTest';
-import FileEditor from './components/FileEditor';
 import Playground from './components/Playground';
 import Header from './components/Header';
 import Drawer from 'material-ui/Drawer/Drawer';

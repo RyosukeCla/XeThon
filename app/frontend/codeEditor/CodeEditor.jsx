@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 //import * as Actions from './codeEditorActions';
 
-import CodeMirror from './CodeMirror';
+import CodeMirrorWrapper from './CodeMirrorWrapper';
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class CodeEditor extends Component {
     };
     return (
       <div className="CodeEditor">
-        <CodeMirror />
+        <CodeMirrorWrapper />
       </div>
     );
   }

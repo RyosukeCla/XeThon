@@ -18,16 +18,20 @@
 }
 
 .CodeMirror {
-  //font-family:Inconsolata, Monaco, Consolas, 'Courier New', Courier ;
+  font-family:Inconsolata, Monaco, Consolas, 'Courier New', Courier ;
   //font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-  font-family: Inconsolata, 'Myrica', Monaco, Consolas, Courier;
+  //font-family: Inconsolata, 'Myrica', Monaco, Consolas, Courier;
   font-size: 12pt;
-  //vertical-align: baseline;
   height: inherit;
   line-height: 1.4em;
 
   background-color: $editor-bg !important;
+
+  textarea {
+    font-size: 16pt;
+  }
 }
+
 
 .CodeMirror-focused {
 
@@ -48,8 +52,14 @@
 }
 
 .CodeMirror-activeline-gutter {
-  background-color: $editor-cursor;
+  background-color: rgba(204, 217, 255, 0.2);
 }
+
+.CodeMirror-gutter-elt {
+  color: rgb(200,200,210);
+}
+
 .CodeMirror-activeline-background {
-  background-color: $editor-cursor;
+  //background-color: $editor-cursor;
+  background: rgba(204, 217, 255, 0.1);
 }
