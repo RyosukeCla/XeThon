@@ -8,7 +8,6 @@ import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
-import Tooltip from './Tooltip';
 import FlatIconButton from './FlatIconButton';
 
 export default class Header extends React.Component {
