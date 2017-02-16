@@ -31,12 +31,14 @@
     "electron": "^1.4.15",
     "electron-packager": "^8.5.1",
     "lodash.debounce": "^4.0.8",
+    "material-design-icons": "^3.0.1",
     "material-ui": "^0.16.7",
     "react": "^15.4.2",
     "react-dnd": "^2.2.3",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "react-tap-event-plugin": "^2.0.1",
+    "react-tooltip": "^3.2.6",
     "redux": "^3.6.0"
   },
   "devDependencies": {

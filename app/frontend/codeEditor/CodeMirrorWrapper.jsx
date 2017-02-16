@@ -14,8 +14,13 @@ xethonModeAdder(CodeMirror);
 
 require("codemirror/addon/hint/show-hint");
 require("codemirror/addon/hint/anyword-hint");
-require("../../modules/autosuggest");
-import { xethonSuggest } from '../../modules/xethonSuggest';
+//require("../../modules/autosuggest");
+//import { xethonSuggest } from '../../modules/xethonSuggest';
+require('../../modules/xethonSuggest');
+import xethonSuggestAdder from "../../modules/xethonSuggest";
+xethonSuggestAdder(CodeMirror);
+
+require("../../modules/show-invisibles");
 
 import debounce from 'lodash.debounce';
 
@@ -46,16 +51,13 @@ export default class CodeMirrorWrapper extends Component {
         nonEmpty: true,
         foldGutter: true,
         gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        autoSuggest: xethonSuggest,
-        word: /(\b[a-zA-Z][a-zA-Z0-9]*(?= *\()|\b[a-zA-Z][a-zA-Z0-9]*(?= *=))/,
-        range: 1000,
+        showInvisibles: true,
         //value: "日本語でもオッケーですか？\nimport Comfortable.",
       },
     };
   }
 
   getCodeMirrorInstance() {
-
     return this.props.codeMirrorInstance || CodeMirror;
   }
 
@@ -72,17 +74,13 @@ export default class CodeMirrorWrapper extends Component {
 
     this.codeMirror.on("keyup", debounce(function(cm, e) {
       var code = e.keyCode;
-      if (65 <= code && code <= 90) {
-        if (!cm.state.completionActive) {
-          CodeMirror.commands.autocomplete(
-            cm,
-            CodeMirror.hint.anyword,
-            {
-              completeSingle: false,
-            });
-        }
+      if (49 <= code && code <= 90 || code == 220 || code == 189) {
+        cm.showHint({
+          completeSingle: false,
+          hint: CodeMirror.hint.xethon
+        });
       }
-    }, 2));
+    }, 200));
   }
 
   onCompositionStart(e) {

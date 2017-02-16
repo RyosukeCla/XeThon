@@ -38,11 +38,11 @@
   background: transparent;
 }
 .cm-s-one-dark .CodeMirror-linenumber {
-  padding: 0 10px 0 10px;
+  padding: 0 5px 0 5px;
   min-width: 20px;
   text-align: right;
   white-space: nowrap;
-  color: hsl(220, 10%, 25%);
+  color: hsl(220, 10%, 10%);
 }
 /* ...folding addon: fold/...  */
 .cm-s-one-dark .CodeMirror-foldmarker {
