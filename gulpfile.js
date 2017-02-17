@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var coffee = require('gulp-coffee');
 
 var sassDir = './app/assets/sass';
 var src = [
@@ -20,10 +19,4 @@ gulp.task('sass', function() {
 
 gulp.task('watch', ['sass'], function () {
   gulp.watch(src, ['sass']);
-});
-
-gulp.task('coffee', function() {
-  gulp.src('./app/assets/js/**/*.coffee')
-    .pipe(coffee())
-    .pipe(gulp.dest('./app/assets/js'));
 });

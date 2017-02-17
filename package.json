@@ -7,7 +7,6 @@
     "start": "NODE_ENV=development electron .",
     "build": "NODE_ENV=production electron-packager . XeThon --platform darwin -arch x64 --overwrite",
     "sass": "NODE_ENV=development gulp watch",
-    "coffee": "gulp coffee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
