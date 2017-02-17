@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ApiTest from './components/ApiTest';
-import Playground from './components/Playground';
-import Header from './components/Header';
-import Drawer from 'material-ui/Drawer/Drawer';
-import FlexContainer from './components/FlexContainer';
-import ResizableFlexBox from './components/ResizableFlexBox';
 
+import Header from './header/Header';
 import ResizableLayout from './resizableLayout/ResizableLayout';
 
 export default class App extends React.Component {

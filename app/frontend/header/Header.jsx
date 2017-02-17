@@ -1,36 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Toolbar, ToolbarGroup, ToolbarSeparator} from 'material-ui/Toolbar';
-import Drawer from 'material-ui/Drawer/Drawer';
-import RaisedButton from 'material-ui/RaisedButton';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import FlatButton from 'material-ui/FlatButton';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import React, {PropTypes, Component} from 'react';
 
-import FlatIconButton from './FlatIconButton';
-import LinearProgress from 'material-ui/LinearProgress';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+//import * as Actions from './headerActions';
 
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import Paper from 'material-ui/Paper';
-import StatusBar from './StatusBar';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
+import StatusBar from '../components/StatusBar';
+import FlatIconButton from '../components/FlatIconButton';
 
-export default class Header extends React.Component {
+class Header extends Component {
   render() {
-    const size = {
-      fontSize: "30px",
-    };
-    const height = {
-      height: "40px",
-    }
     const toolbarStyle = {
       height: "40px",
       padding: "0px 24px 0px 24px",
     };
-    const iconButtonStyle = {
+    const blankStyle = {
       height: "40px",
       width: "50px",
-      minWidth: "50px",
     };
     const statusStyle = {
       height: "40px",
@@ -61,7 +47,7 @@ export default class Header extends React.Component {
             tooltip="check status"
             id="main status"
             />
-          <div style={iconButtonStyle} />
+          <div style={blankStyle} />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <FlatIconButton
@@ -71,7 +57,23 @@ export default class Header extends React.Component {
             />
         </ToolbarGroup>
       </Toolbar>
-
     );
   }
 }
+
+function mapStateToProps(state, ownProps) {
+  return {
+    // hoge: state.hoge,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    //actions: bindActionCreators(Actions, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

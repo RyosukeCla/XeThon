@@ -184,7 +184,7 @@ export default function(CodeMirror) {
 
   function arrayFilter(array, tokenStr) {
     const regex = new RegExp("^" + pregQuote(tokenStr));
-    
+
     return array.filter(function(element) {
       return (element.match(regex));
     });

@@ -15,6 +15,7 @@ export default class StatusBar extends Component {
       isProgressing: PropTypes.bool,
       tooltip: PropTypes.string,
       id: PropTypes.string,
+      onTouchStart: PropTypes.func,
     };
   }
 
@@ -30,6 +31,15 @@ export default class StatusBar extends Component {
       tooltip: "",
       id: "status"
     };
+  }
+
+  constructor(props) {
+    super(props);
+    this.handleTouchStart = this.handleTouchStart.bind(this);
+  }
+
+  handleTouchStart(e) {
+    this.props.onTouchStart(e);
   }
 
   render() {
@@ -54,7 +64,8 @@ export default class StatusBar extends Component {
       <div>
         <FlatButton
           style={style}
-          data-tip data-for={this.props.id}>
+          data-tip data-for={this.props.id}
+          onTouchStart={this.handleTouchStart}>
           <div style={statusStyle}>{this.props.status}</div>
           <LinearProgress mode={mode} style={progressStyle}/>
         </FlatButton>
@@ -62,7 +73,6 @@ export default class StatusBar extends Component {
           {this.props.tooltip}
         </ReactTooltip>
       </div>
-
     );
   }
 }
