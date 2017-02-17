@@ -9,6 +9,11 @@ import FlatButton from 'material-ui/FlatButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 import FlatIconButton from './FlatIconButton';
+import LinearProgress from 'material-ui/LinearProgress';
+
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+import StatusBar from './StatusBar';
 
 export default class Header extends React.Component {
   render() {
@@ -27,6 +32,13 @@ export default class Header extends React.Component {
       width: "50px",
       minWidth: "50px",
     };
+    const statusStyle = {
+      height: "40px",
+      width: "50vw",
+      minWidth: "100px",
+      maxWidth: "500px",
+      marginLeft: "0",
+    }
     return (
       <Toolbar style={toolbarStyle}>
         <ToolbarGroup firstChild={true}>
@@ -42,6 +54,14 @@ export default class Header extends React.Component {
             iconClassName="play_circle_filled"
             id="typeset"
             />
+          <StatusBar
+            style={statusStyle}
+            status="editing : セクション1"
+            isProgressing={false}
+            tooltip="check status"
+            id="main status"
+            />
+          <div style={iconButtonStyle} />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <FlatIconButton
