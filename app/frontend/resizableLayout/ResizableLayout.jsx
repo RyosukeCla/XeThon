@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-//import * as Actions from './resizableLayoutActions';
+//import * as Actions from './resizableLayoutAction';
 
 import ResizableBox from './ResizableBox';
 

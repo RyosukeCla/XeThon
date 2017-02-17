@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-//import * as Actions from './appActions';
+//import * as Actions from './appAction';
 
 import Header from '../header/Header';
 import ResizableLayout from '../resizableLayout/ResizableLayout';

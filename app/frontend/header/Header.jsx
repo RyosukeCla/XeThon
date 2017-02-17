@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-//import * as Actions from './headerActions';
+//import * as Actions from './headerAction';
 
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import StatusBar from '../components/StatusBar';
