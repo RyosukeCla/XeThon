@@ -92,7 +92,6 @@ export default class CodeMirrorWrapper extends Component {
   }
 
   render() {
-    console.log("asdf");
     return (
       <div className="CodeMirrorContainer">
         <textarea
