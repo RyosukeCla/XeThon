@@ -29,36 +29,29 @@ export default class CodeMirrorWrapper extends Component {
   static get propTypes() {
     return {
       codeMirrorInstance: PropTypes.func,
-      options: PropTypes.object,
     };
   }
 
   static get defaultProps() {
     return {
-      options: {
-        mode: "xethon",
-        autoCloseBrackets: true,
-        lineNumbers: true,
-        lineWrapping: true,
-        tabindex: 2,
-        indentUnit: 2,
-        indentWithTabs: 2,
-        tabSize: 2,
-        inputStyle: "textarea",
-        cursorHeight: 1.01,
-        theme: "one-dark",
-        styleActiveLine: true,
-        nonEmpty: true,
-        foldGutter: true,
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        showInvisibles: true,
-        //value: "日本語でもオッケーですか？\nimport Comfortable.",
-      },
     };
   }
 
   getCodeMirrorInstance() {
     return this.props.codeMirrorInstance || CodeMirror;
+  }
+
+  getValue() {
+    if (this.codeMirror) {
+      return this.codeMirror.getValue();
+    }
+    return "";
+  }
+
+  setValue(str) {
+    if (this.codeMirror) {
+      this.codeMirror.setValue(str);
+    }
   }
 
   componentWillUnmount () {
@@ -68,9 +61,28 @@ export default class CodeMirrorWrapper extends Component {
 	}
 
   componentDidMount() {
+    const options = {
+      mode: "xethon",
+      autoCloseBrackets: true,
+      lineNumbers: true,
+      lineWrapping: true,
+      tabindex: 2,
+      indentUnit: 2,
+      indentWithTabs: 2,
+      tabSize: 2,
+      inputStyle: "textarea",
+      cursorHeight: 1,
+      theme: "one-dark",
+      styleActiveLine: true,
+      nonEmpty: true,
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      showInvisibles: true,
+    };
+
     const textareaNode = ReactDOM.findDOMNode(this.refs.textarea);
     const codeMirrorInstance = this.getCodeMirrorInstance();
-    this.codeMirror = codeMirrorInstance.fromTextArea(textareaNode, this.props.options);
+    this.codeMirror = codeMirrorInstance.fromTextArea(textareaNode, options);
 
     this.codeMirror.on("keyup", debounce(function(cm, e) {
       var code = e.keyCode;
@@ -92,6 +104,7 @@ export default class CodeMirrorWrapper extends Component {
   }
 
   render() {
+
     return (
       <div className="CodeMirrorContainer">
         <textarea

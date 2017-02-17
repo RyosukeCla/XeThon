@@ -1,8 +1,8 @@
 import React, {PropTypes, Component} from 'react';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-//import * as Actions from './S_NAMEAction';
+//import { hoge } from './actions';
 
 class C_NAME extends Component {
   render() {
@@ -14,14 +14,12 @@ class C_NAME extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    // hoge: state.hoge,
+    // hoge: state.S_NAME.hoge,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    //actions: bindActionCreators(Actions, dispatch),
-  };
+  return {};//bindActionCreators({ hoge }, dispatch);
 }
 
 export default connect(

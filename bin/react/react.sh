@@ -37,22 +37,23 @@ if [ "$COMMAND" = "g" -o "$COMMAND" = "generate" ]; then
   perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/$C_NAME.jsx
 
   # create action
-  cp -i $TEMPLATE_FILE_PATH/react/action.jsx $CREATE_FILE_PATH/${S_NAME}Action.jsx
-  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/${S_NAME}Action.jsx
-  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/${S_NAME}Action.jsx
+  cp -i $TEMPLATE_FILE_PATH/react/actions.jsx $CREATE_FILE_PATH/actions.jsx
+  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/actions.jsx
+  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/actions.jsx
 
   # create reducer
-  cp -i $TEMPLATE_FILE_PATH/react/reducer.jsx $CREATE_FILE_PATH/${S_NAME}Reducer.jsx
-  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/${S_NAME}Reducer.jsx
-  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/${S_NAME}Reducer.jsx
+  cp -i $TEMPLATE_FILE_PATH/react/reducer.jsx $CREATE_FILE_PATH/reducer.jsx
+  perl -pi -e s/S_NAME/"$S_NAME"/ $CREATE_FILE_PATH/reducer.jsx
+  perl -pi -e s/C_NAME/"$C_NAME"/ $CREATE_FILE_PATH/reducer.jsx
 
   # import reducer to rootReducer
   REDUCER_PATH=$DIR/app/frontend/rootReducer.jsx
-  IMPORT="import $S_NAME from \'\.\/$S_NAME\/${S_NAME}Reducer\';"
-  gsed -i "/^\/\/reducers import$/a $IMPORT" $REDUCER_PATH
+  IMPORT="import $S_NAME from \'\.\/$S_NAME\/reducer\';"
+  gsed -i "/^\/\/reducers imports$/a $IMPORT" $REDUCER_PATH
   IMPORT="\ \ $S_NAME,"
   gsed -i "/^\/\/reducers$/a $IMPORT" $REDUCER_PATH
 
+  exit 1;
   # create scss
   CREATE_FILE_PATH=$DIR/app/assets/sass/components
 

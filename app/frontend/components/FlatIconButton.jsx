@@ -15,7 +15,7 @@ export default class FlatIconButton extends Component {
       iconClassName: PropTypes.string,
       tooltip: PropTypes.string,
       id: PropTypes.string,
-      onTouchStart: PropTypes.func,
+      onTouchTap: PropTypes.func,
     };
   }
 
@@ -34,11 +34,11 @@ export default class FlatIconButton extends Component {
   constructor(props) {
     super(props);
 
-    this.handleTouchStart = this.handleTouchStart.bind(this);
+    this.handleTouchTap = this.handleTouchTap.bind(this);
   }
 
-  handleTouchStart(e) {
-    this.props.onTouchStart(e);
+  handleTouchTap(e) {
+    this.props.onTouchTap(e);
   }
 
   render() {
@@ -56,7 +56,7 @@ export default class FlatIconButton extends Component {
             </FontIcon>
           }
           style={flatBStyle}
-          onTouchStart={this.handleTouchStart}
+          onTouchTap={this.handleTouchTap}
           data-tip data-for={this.props.id}
           />
         <ReactTooltip id={this.props.id} place="bottom" type="dark" effect="solid">

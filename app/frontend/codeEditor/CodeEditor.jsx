@@ -12,20 +12,10 @@ class CodeEditor extends Component {
 
   }
 
-  updateCode(newCode) {
-    this.setState({
-      code : newCode,
-    });
-  }
-
-
   render() {
-    const options = {
-      lineNumbers: true,
-    };
     return (
       <div className="CodeEditor">
-        <CodeMirrorWrapper />
+        <CodeMirrorWrapper ref="editor"/>
       </div>
     );
   }

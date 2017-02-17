@@ -1,18 +1,18 @@
 import React, {PropTypes, Component} from 'react';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-//import * as Actions from './appAction';
+//import { hoge } from './actions';
 
-import Header from '../header/Header';
-import ResizableLayout from '../resizableLayout/ResizableLayout';
+import TopBar from '../topBar/TopBar';
+import Layout from '../layout/Layout';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <ResizableLayout />
+        <TopBar />
+        <Layout />
       </div>
     );
   }
@@ -20,14 +20,12 @@ class App extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    // hoge: state.hoge,
+    // hoge: state.app.hoge,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    //actions: bindActionCreators(Actions, dispatch),
-  };
+  return {};//bindActionCreators({ hoge }, dispatch);
 }
 
 export default connect(
