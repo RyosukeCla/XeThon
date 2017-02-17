@@ -4,7 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import xethonTheme from './theme/xethonTheme';
-import App from './App';
+import App from './app/App';
 
 import { Provider } from 'react-redux';
 import configStore from './configStore';
