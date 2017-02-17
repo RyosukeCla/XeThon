@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-//import * as Actions from './S_NAMEActions';
+//import * as Actions from './S_NAMEAction';
 
 class C_NAME extends Component {
   render() {
