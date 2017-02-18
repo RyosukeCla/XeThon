@@ -2,7 +2,7 @@ import Actions from './actions';
 
 const initialState = {
   isLTabFolded: false,
-  isRTabFolded: false,
+  isRTabFolded: true,
 }
 
 export default function layout(state = initialState, action) {

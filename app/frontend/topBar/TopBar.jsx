@@ -10,6 +10,8 @@ import FlatIconButton from '../components/FlatIconButton';
 
 import { toggleLTabFolding, toggleRTabFolding } from '../layout/actions';
 
+import performance from '../../modules/performance';
+
 class TopBar extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,8 @@ class TopBar extends Component {
   }
 
   render() {
+    performance("TopBar");
+
     const toolbarStyle = {
       height: "40px",
       padding: "0px 24px 0px 24px",

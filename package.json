@@ -34,9 +34,10 @@
     "material-design-icons": "^3.0.1",
     "material-ui": "^0.16.7",
     "react": "^15.4.2",
-    "react-dnd": "^2.2.3",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
+    "react-sortable-hoc": "^0.5.0",
+    "react-swipeable-views": "^0.10.7",
     "react-tap-event-plugin": "^2.0.1",
     "react-tooltip": "^3.2.6",
     "redux": "^3.6.0"

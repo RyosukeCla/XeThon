@@ -4,24 +4,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 //import { hoge } from './actions';
 
-import CodeMirrorWrapper from './CodeMirrorWrapper';
-import performance from '../../modules/performance';
-
-class CodeEditor extends Component {
-
+class StatusDialog extends Component {
   render() {
-    performance("CodeEditor");
     return (
-      <div className="CodeEditor">
-        <CodeMirrorWrapper ref="editor" />
-      </div>
+      <div className="StatusDialog"></div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
   return {
-    // hoge: state.codeEditor.hoge,
+    // hoge: state.statusDialog.hoge,
   };
 }
 
@@ -32,4 +25,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CodeEditor);
+)(StatusDialog);

@@ -5,11 +5,12 @@ export default function(CodeMirror) {
    */
   const texWithNoBS = [
     // Document class
-    "book", "report", "article", "letter", "slides",
+    "book", "report", "jarticle", "article", "letter", "slides",
+    "document",
 
     // Packages
     "fullpage", "anysize", "multicol", "latexsym", "graphicx",
-    "url",
+    "url", "amsmath", "amssymb",
 
     // Common
     "pt", "letterpaper", "a4paper", "twocolumn",
@@ -78,7 +79,7 @@ export default function(CodeMirror) {
     "citeNP",
 
     // Math
-    "^{}", "_{}",
+    "^{}", "_{}", "mathbb", "sqrt",
   ];
 
   const texWithBSElse = [

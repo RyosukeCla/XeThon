@@ -13,9 +13,6 @@ import xethonModeAdder from "../../modules/xethonMode";
 xethonModeAdder(CodeMirror);
 
 require("codemirror/addon/hint/show-hint");
-require("codemirror/addon/hint/anyword-hint");
-//require("../../modules/autosuggest");
-//import { xethonSuggest } from '../../modules/xethonSuggest';
 require('../../modules/xethonSuggest');
 import xethonSuggestAdder from "../../modules/xethonSuggest";
 xethonSuggestAdder(CodeMirror);
@@ -23,6 +20,7 @@ xethonSuggestAdder(CodeMirror);
 require("../../modules/show-invisibles");
 
 import debounce from 'lodash.debounce';
+import performance from '../../modules/performance';
 
 export default class CodeMirrorWrapper extends Component {
 
@@ -104,7 +102,8 @@ export default class CodeMirrorWrapper extends Component {
   }
 
   render() {
-
+    performance("CodeMirrorWrapper");
+    
     return (
       <div className="CodeMirrorContainer">
         <textarea

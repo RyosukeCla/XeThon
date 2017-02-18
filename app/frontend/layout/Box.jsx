@@ -3,6 +3,7 @@ import React, {PropTypes, Component} from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 //import * as Actions from './actions';
+import performance from '../../modules/performance';
 
 export default class Box extends Component {
   static get propTypes() {
@@ -24,6 +25,8 @@ export default class Box extends Component {
   }
 
   render() {
+    performance("Box");
+
     const display = (this.props.isFolded) ? {display:"none"} : {};
     const style = Object.assign({
       flexGrow: this.props.flexGrow,

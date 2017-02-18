@@ -3,13 +3,23 @@ import React, {PropTypes, Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 //import { hoge } from './actions';
+import performance from '../../modules/performance';
 
 import Box from './Box';
 import CodeEditor from '../codeEditor/CodeEditor';
 
+import TabMenu from '../tabMenu/TabMenu';
+import TabBox from '../tabMenu/TabBox';
+
+import OrderedFileMenu from '../orderedFileMenu/OrderedFileMenu';
+
+import uuid from '../../modules/uuidGen';
+
 class Layout extends Component {
 
   render() {
+    performance("Layout");
+
     const style = {
       display: "flex",
       flexDirection: "row",
@@ -18,11 +28,20 @@ class Layout extends Component {
     };
     return (
       <div className="Layout" style={style}>
-        <Box isFolded={this.props.isLTabFolded} width="200px" />
+        <Box isFolded={this.props.isLTabFolded} width="200px">
+          <TabMenu tabIcons={["description", "extension"]}>
+            <TabBox>
+              <OrderedFileMenu />
+            </TabBox>
+            <TabBox>
+              aiueo 4
+            </TabBox>
+          </TabMenu>
+        </Box>
         <Box flexGrow={1} flexShrink={1} folded={false}>
           <CodeEditor />
         </Box>
-        <Box isFolded={this.props.isRTabFolded} width="200px" />
+        <Box isFolded={this.props.isRTabFolded} width="200px"/>
       </div>
     );
   }
