@@ -20,7 +20,14 @@ export default class OrdredFile extends Component {
       title: PropTypes.string.isRequired,
       fileId: PropTypes.string.isRequired,
       isSelected: PropTypes.bool.isRequired,
+      isSaved: PropTypes.bool,
       onSelect: PropTypes.func,
+    };
+  }
+
+  static get defaultProps() {
+    return {
+      isSaved: false,
     };
   }
 
@@ -38,8 +45,6 @@ export default class OrdredFile extends Component {
   handleClick(e, isRight?) {
     e.preventDefault();
     if(isRight){
-      //TODO: show context menu
-      console.log("context");
       this.setState({
         open: true,
         anchorEl: e.currentTarget,
@@ -70,14 +75,7 @@ export default class OrdredFile extends Component {
       color: "rgb(100,100,100)",
     }, bg);
 
-    const orderStyle = {
-      height: "35px",
-      //width: "35px",
-      marginLeft: "10px",
-      alignItems: "center",
-      position: "absolute",
-      top: "5px",
-    };
+
     const titleStyle = {
       marginLeft: "5px",
       borderLeft: "solid 1px #999999",
@@ -85,6 +83,17 @@ export default class OrdredFile extends Component {
       fontSize: "11px",
       color: "rgb(60,60,60)",
       flexGrow: 1,
+    };
+
+    const saveDisplay = (this.props.isSaved) ? "none" : "block";
+    const saveStyle = {
+      height: "35px",
+      //width: "35px",
+      alignItems: "center",
+      position: "absolute",
+      right: "5px",
+      top: "12px",
+      display: saveDisplay,
     };
 
     // Renderer return
@@ -98,6 +107,9 @@ export default class OrdredFile extends Component {
         <div style={titleStyle}>
           {this.props.title}
         </div>
+        <div style={saveStyle}>
+          ●
+        </div>
         <Popover
           open={this.state.open}
           anchorEl={this.state.anchorEl}
@@ -106,6 +118,8 @@ export default class OrdredFile extends Component {
           onRequestClose={this.handleRequestClose}
           >
           <Menu desktop={true}>
+            <MenuItem primaryText="Save" />
+            <MenuItem primaryText="Save All" />
             <MenuItem primaryText="Rename" />
             <MenuItem primaryText="Duplicate" />
             <MenuItem primaryText="Delete" />

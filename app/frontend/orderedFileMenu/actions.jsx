@@ -15,6 +15,9 @@ const Actions = {
   SELECT: namespace("select"),
   SORTEND: namespace("sortend"),
   GET_SELECTED_FILE: namespace('getSelectedFile'), // get file and change editors text.
+  SAVE: namespace("save"),
+  SAVE_ALL: namespace("saveAll"),
+  CHANGE_FILE: namespace("chageFile"),
 }
 
 export default Actions;
