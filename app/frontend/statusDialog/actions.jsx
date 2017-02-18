@@ -2,17 +2,23 @@ const namespace = function(name) {
   return `statusDialog/${name}`;
 }
 
-/*
 const Actions = {
-  hoge: namespace("hoge")
+  OPEN: namespace("open"),
+  CLOSE: namespace("close"),
 }
 
 export default Actions;
 
-export function hoge(text) {
+export function statusDialogOpen() {
   return {
-    type: Actions.hoge,
-    text,
+    type: Actions.OPEN,
+    value: true,
   };
 }
-*/
+
+export function statusDialogClose() {
+  return {
+    type: Actions.CLOSE,
+    value: false,
+  };
+}

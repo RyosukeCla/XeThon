@@ -1,11 +1,15 @@
-// import Actions from './actions';
+import Actions from './actions';
 
-const initialState = {}
+const initialState = {
+  open: false,
+}
 
 export default function statusDialog(state = initialState, action) {
   switch (action.type) {
-    case 'HOGE': // case Actions.hoge:
-      return {};
+    case Actions.OPEN:
+      return { open: action.value };
+    case Actions.CLOSE:
+      return { open: action.value };
     default:
       return state;
   }

@@ -37,7 +37,7 @@ const SortableList = SortableContainer(({items}) =>
         key={`item-${index}`}
         index={index}
         title={title}
-        order={index}
+        order={index + 1}
         fileId={fileId}
         isSelected={isSelected} />
     )}
@@ -97,6 +97,9 @@ class OrderedFileMenu extends Component {
             }
             .DraggingOrderedFile {
               background: rgba(230,230,230, 0.4);
+              box-shadow:0px 0px 3px 0px #8c8c8c;
+              -moz-box-shadow:0px 0px 3px 0px #8c8c8c;
+              -webkit-box-shadow:0px 0px 3px 0px #8c8c8c;
             }
           `}
         </style>

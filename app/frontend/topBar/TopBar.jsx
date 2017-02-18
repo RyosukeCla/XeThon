@@ -9,6 +9,7 @@ import StatusBar from '../components/StatusBar';
 import FlatIconButton from '../components/FlatIconButton';
 
 import { toggleLTabFolding, toggleRTabFolding } from '../layout/actions';
+import { statusDialogOpen } from '../statusDialog/actions';
 
 import performance from '../../modules/performance';
 
@@ -17,6 +18,7 @@ class TopBar extends Component {
     super(props);
     this.handleTouchTapLMenuButton = this.handleTouchTapLMenuButton.bind(this);
     this.handleTouchTapRMenuButton = this.handleTouchTapRMenuButton.bind(this);
+    this.openStatusDialog = this.openStatusDialog.bind(this);
   }
 
   handleTouchTapLMenuButton(e) {
@@ -25,6 +27,10 @@ class TopBar extends Component {
 
   handleTouchTapRMenuButton(e) {
     this.props.toggleRTabFolding(this.props.isRTabFolded);
+  }
+
+  openStatusDialog() {
+    this.props.statusDialogOpen();
   }
 
   render() {
@@ -68,6 +74,7 @@ class TopBar extends Component {
               isProgressing={false}
               tooltip="check status"
               id="main status"
+              onTouchTap={this.openStatusDialog}
               />
             <div style={blankStyle} />
           </ToolbarGroup>
@@ -96,6 +103,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     toggleRTabFolding,
     toggleLTabFolding,
+    statusDialogOpen,
   }, dispatch);
 }
 

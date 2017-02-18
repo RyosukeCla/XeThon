@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import TopBar from '../topBar/TopBar';
 import Layout from '../layout/Layout';
+import StatusDialog from '../statusDialog/StatusDialog';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
       <div className="App">
         <TopBar />
         <Layout />
+        <StatusDialog />
       </div>
     );
   }
