@@ -6,11 +6,12 @@ import { changeMenu } from './actions';
 
 import FontIcon from 'material-ui/FontIcon';
 import {Tabs, Tab} from 'material-ui/Tabs';
-
+import Divider from 'material-ui/Divider';
 import SwipeableViews from 'react-swipeable-views';
 
 import uuid from '../../modules/uuidGen';
 import performance from '../../modules/performance';
+import Theme from '../theme/xethonTheme';
 
 class TabMenu extends Component {
   static get propTypes() {
@@ -18,6 +19,7 @@ class TabMenu extends Component {
       style: PropTypes.object,
       tabStyle: PropTypes.object,
       tabIcons: PropTypes.array,
+      iconStyle: PropTypes.object,
     };
   }
 
@@ -26,8 +28,14 @@ class TabMenu extends Component {
       style: {},
       tabStyle: {
         height: "35px",
+        background: Theme.tabMenu.bg,
+        color: Theme.tabMenu.col,
       },
       tabIcons: ["home"],
+      iconStyle: {
+        selected: Theme.tabMenu.col,
+        unselected: Theme.tabMenu.colHidden,
+      },
     };
   }
 
@@ -66,11 +74,11 @@ class TabMenu extends Component {
     const containerStyle = {
       height: "inherit",
       flexGrow: 1,
-
     }
 
     return (
       <div className="TabMenu" style={style}>
+        <Divider />
         <Tabs
           onChange={this.handleChange}
           >

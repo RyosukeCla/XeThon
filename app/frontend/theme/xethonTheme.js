@@ -1,55 +1,46 @@
+import * as colors from 'material-ui/styles/colors';
 import {
-  cyan500, cyan700,
-  pinkA200,
-  grey100, grey300, grey400, grey500,
-  blueGray800, tealA400,
-  white, darkBlack, fullBlack,
-} from 'material-ui/styles/colors';
-import {
-  wetasphalt, bluegray50
+  wetasphalt, bluegray50, midnightblue, clouds,
 } from './xethonColors';
-import {fade} from 'material-ui/utils/colorManipulator';
-import spacing from 'material-ui/styles/spacing';
 
-export default {
-  spacing: spacing,
-  fontFamily: 'Roboto, sans-serif',
-  palette: {
-    primary1Color: cyan500,
-    primary2Color: cyan700,
-    primary3Color: grey400,
-    accent1Color: pinkA200,
-    accent2Color: grey100,
-    accent3Color: grey500,
-    textColor: darkBlack,
-    alternateTextColor: white,
-    canvasColor: white,
-    borderColor: grey300,
-    disabledColor: fade(darkBlack, 0.3),
-    pickerHeaderColor: cyan500,
-    clockCircleColor: fade(darkBlack, 0.07),
-    shadowColor: fullBlack
+var colorManipulator = require('material-ui/utils/colorManipulator');
+
+const Theme = {
+  topBar: {
+    bg: midnightblue,
+    col: colors.pinkA200,
   },
-  appBar: {
-    height: 50,
-    color: wetasphalt,
-    textColor: white
-  }
+  tabMenu: {
+    bg: midnightblue,
+    col: colors.pinkA200,
+    colHidden: (0, colorManipulator.fade)(colors.pinkA400, 0.5),
+  },
+  tabBox: {
+    bg: midnightblue,
+    col: colors.pinkA200,
+  },
+  statusDialog: {
+    bg: midnightblue,
+    col: colors.pinkA200,
+    col2: colors.pinkA400,
+    buttonBG: colors.grey50,
+    buttonCol: colors.pinkA200,
+  },
+  orderedFileMenu: {
+    bg: midnightblue,
+    addBG: midnightblue,
+    addCol: colors.pinkA200,
+    listBG: midnightblue,
+    listBGHover: wetasphalt,
+    listBGSelected: wetasphalt,
+    listPlaceholderBG: wetasphalt,
+    listCol: colors.pinkA200,
+    listNumCol: colors.pinkA200,
+    listBorderCol: colors.pink200,
+    saveCol: colors.pinkA400,
+    contextBG: midnightblue,
+    contextCol: colors.pinkA200,
+  },
 };
-/*
-// default
-primary1Color: cyan500,
-primary2Color: cyan700,
-primary3Color: grey400,
-accent1Color: pinkA200,
-accent2Color: grey100,
-accent3Color: grey500,
-textColor: darkBlack,
-alternateTextColor: white,
-canvasColor: white,
-borderColor: grey300,
-disabledColor: fade(darkBlack, 0.3),
-pickerHeaderColor: cyan500,
-clockCircleColor: fade(darkBlack, 0.07),
-shadowColor: fullBlack
-*/
+
+export default Theme;

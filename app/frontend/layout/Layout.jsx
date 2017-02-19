@@ -34,7 +34,6 @@ class Layout extends Component {
               <OrderedFileMenu />
             </TabBox>
             <TabBox>
-              aiueo 4
             </TabBox>
           </TabMenu>
         </Box>

@@ -6,6 +6,7 @@ global.frontendDir = `${global.appDir}/frontend`;
 global.modulesDir = `${global.appDir}/modules`;
 
 const electron = require('electron');
+
 const apiCaller = require(`${global.modulesDir}/api_caller`);
 const app = electron.app;
 const ipcMain = electron.ipcMain;
@@ -22,6 +23,9 @@ app.on("ready", e => {
     }
   );
   mainWindow.loadURL(`${ROOT_PATH}/index.html`);
+
+  BrowserWindow.addDevToolsExtension("/Users/ryosukesuzuki/Library/Application\ Support/Google/Chrome/Profile\ 1/Extensions/fmkadmapgofadopljbjfkapdkoienihi/2.0.12_0");
+
   mainWindow.webContents.openDevTools();
   console.log("opened!");
 });
