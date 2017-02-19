@@ -12,6 +12,7 @@ import { toggleLTabFolding, toggleRTabFolding } from '../layout/actions';
 import { statusDialogOpen } from '../statusDialog/actions';
 
 import performance from '../../modules/performance';
+import Theme from '../theme/xethonTheme';
 
 class TopBar extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class TopBar extends Component {
     const toolbarStyle = {
       height: "40px",
       padding: "0px 24px 0px 24px",
+      background: Theme.topBar.bg,
     };
     const blankStyle = {
       height: "40px",

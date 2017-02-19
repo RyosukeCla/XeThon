@@ -3,6 +3,8 @@ import FlatButton from 'material-ui/FlatButton';
 import ReactTooltip from 'react-tooltip';
 import LinearProgress from 'material-ui/LinearProgress';
 
+import Theme from '../theme/xethonTheme';
+
 export default class StatusBar extends Component {
   static get propTypes() {
     return {
@@ -24,7 +26,9 @@ export default class StatusBar extends Component {
       width: "50vw",
       height: "40px",
       status: "",
-      statusStyle: {},
+      statusStyle: {
+        color: Theme.topBar.col,
+      },
       style: {},
       progressStyle: {},
       isProgressing: false,

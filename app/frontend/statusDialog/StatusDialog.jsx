@@ -7,6 +7,8 @@ import { statusDialogClose } from './actions';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
+import Theme from '../theme/xethonTheme';
+
 class StatusDialog extends Component {
   constructor(props) {
     super(props);
@@ -18,15 +20,19 @@ class StatusDialog extends Component {
     this.props.statusDialogClose();
   }
   render() {
+    const buttonStyle = {
+      color: Theme.statusDialog.buttonCol,
+    };
+
     const actions = [
       <FlatButton
         label="Cancel"
-        primary={true}
+        style={buttonStyle}
         onTouchTap={this.handleClose}
       />,
       <FlatButton
         label="Submit"
-        primary={true}
+        style={buttonStyle}
         keyboardFocused={true}
         onTouchTap={this.handleClose}
       />,

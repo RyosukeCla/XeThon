@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
-import { SortableHandle } from 'react-sortable-hoc';
-
 import {List, ListItem} from 'material-ui/List';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -12,13 +10,14 @@ import MenuItem from 'material-ui/MenuItem';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
+import Theme from '../theme/xethonTheme';
+
 export default class OrdredFile extends Component {
 
   static get propTypes() {
     return {
       order: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      fileId: PropTypes.string.isRequired,
       isSelected: PropTypes.bool.isRequired,
       isSaved: PropTypes.bool,
       onSelect: PropTypes.func,
@@ -62,7 +61,7 @@ export default class OrdredFile extends Component {
 
   render() {
     const bg = (this.props.isSelected)
-      ? {backgroundColor: "rgba(200,200,200,0.4)"} : {};
+      ? {backgroundColor: Theme.orderedFileMenu.listBGSelected} : {};
     const style = Object.assign({
       height: "35px",
       display: "flex",
@@ -72,16 +71,16 @@ export default class OrdredFile extends Component {
       position: "relative",
       paddingLeft: "7px",
       fontSize: "11px",
-      color: "rgb(100,100,100)",
+      color: Theme.orderedFileMenu.listNumCol,
     }, bg);
 
 
     const titleStyle = {
       marginLeft: "5px",
-      borderLeft: "solid 1px #999999",
+      borderLeft: `solid 1px ${Theme.orderedFileMenu.listBorderCol}`,
       paddingLeft: "5px",
       fontSize: "11px",
-      color: "rgb(60,60,60)",
+      color: Theme.orderedFileMenu.listCol,
       flexGrow: 1,
     };
 
@@ -94,6 +93,7 @@ export default class OrdredFile extends Component {
       right: "5px",
       top: "12px",
       display: saveDisplay,
+      color: Theme.orderedFileMenu.saveCol,
     };
 
     // Renderer return

@@ -3,6 +3,8 @@ import FontIcon from 'material-ui/FontIcon';
 import FlatButton from 'material-ui/FlatButton';
 import ReactTooltip from 'react-tooltip';
 
+import Theme from '../theme/xethonTheme';
+
 export default class FlatIconButton extends Component {
 
   static get propTypes() {
@@ -26,7 +28,9 @@ export default class FlatIconButton extends Component {
       iconClassName: "home",
       tooltipStyle: {},
       flatButtonStyle: {},
-      iconStyle: {},
+      iconStyle: {
+        color: Theme.topBar.col,
+      },
       tooltip: "",
     };
   }
