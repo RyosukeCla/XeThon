@@ -21,6 +21,7 @@ export default class OrdredFile extends Component {
       isSelected: PropTypes.bool.isRequired,
       isSaved: PropTypes.bool,
       onSelect: PropTypes.func,
+      onContextMenu: PropTypes.func,
     };
   }
 
@@ -33,30 +34,16 @@ export default class OrdredFile extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      open: false,
-    };
-
     this.handleClick = this.handleClick.bind(this);
-    this.handleRequestClose = this.handleRequestClose.bind(this);
   }
 
   handleClick(e, isRight?) {
     e.preventDefault();
     if(isRight){
-      this.setState({
-        open: true,
-        anchorEl: e.currentTarget,
-      });
+      this.props.onContextMenu(e, this.props.title);
     } else {
-      this.props.onSelect(e, this.props.fileId);
+      this.props.onSelect(e, this.props.title);
     }
-  }
-
-  handleRequestClose() {
-    this.setState({
-      open: false,
-    });
   }
 
   render() {
@@ -110,26 +97,6 @@ export default class OrdredFile extends Component {
         <div style={saveStyle}>
           ●
         </div>
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-          targetOrigin={{horizontal: 'left', vertical: 'top'}}
-          onRequestClose={this.handleRequestClose}
-          >
-          <Menu desktop={true}>
-            <MenuItem primaryText="Save" />
-            <MenuItem primaryText="Save All" />
-            <MenuItem primaryText="Rename" />
-            <MenuItem primaryText="Duplicate" />
-            <MenuItem primaryText="Delete" />
-            <MenuItem primaryText="Copy" />
-            <MenuItem primaryText="Cut" />
-            <MenuItem primaryText="Paste" />
-            <Divider />
-            <MenuItem primaryText="Add"/>
-          </Menu>
-        </Popover>
       </div>
     );
   }

@@ -34,6 +34,8 @@ const Theme = {
     listBGHover: wetasphalt,
     listBGSelected: wetasphalt,
     listPlaceholderBG: wetasphalt,
+    listRootCol: colors.pinkA200,
+    listArrowCol: colors.pinkA200,
     listCol: colors.pinkA200,
     listNumCol: colors.pinkA200,
     listBorderCol: colors.pink200,

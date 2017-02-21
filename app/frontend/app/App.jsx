@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import TopBar from '../topBar/TopBar';
 import Layout from '../layout/Layout';
 import StatusDialog from '../statusDialog/StatusDialog';
+import OneTextFieldDialog from '../oneTextFieldDialog/OneTextFieldDialog';
+import ConfirmationDialog from '../confirmationDialog/ConfirmationDialog';
 
 class App extends Component {
   render() {
@@ -15,6 +17,8 @@ class App extends Component {
         <TopBar />
         <Layout />
         <StatusDialog />
+        <OneTextFieldDialog />
+        <ConfirmationDialog />
       </div>
     );
   }

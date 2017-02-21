@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 //reducers imports
+import confirmationDialog from './confirmationDialog/reducer';
+import oneTextFieldDialog from './oneTextFieldDialog/reducer';
 import statusDialog from './statusDialog/reducer';
 import orderedFileMenu from './orderedFileMenu/reducer';
 import tabMenu from './tabMenu/reducer';
@@ -10,6 +12,8 @@ import layout from './layout/reducer';
 
 const rootReducer = combineReducers({
 //reducers
+  confirmationDialog,
+  oneTextFieldDialog,
   statusDialog,
   orderedFileMenu,
   tabMenu,

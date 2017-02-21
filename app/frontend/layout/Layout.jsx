@@ -29,7 +29,7 @@ class Layout extends Component {
     return (
       <div className="Layout" style={style}>
         <Box isFolded={this.props.isLTabFolded} width="200px">
-          <TabMenu tabIcons={["description", "extension"]}>
+          <TabMenu tabIcons={["description", "settings"]}>
             <TabBox>
               <OrderedFileMenu />
             </TabBox>

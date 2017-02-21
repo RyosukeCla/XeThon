@@ -23,11 +23,6 @@
     > .inner {
       position: relative;
       pointer-events: none;
-      //cursor: pointer;
-      padding-left: 0px;
-
-      height: 35px;
-      font-size: 1.2em;
     }
   }
 }
@@ -44,18 +39,16 @@
   }
 
   &.placeholder {
-    //border: 1px dashed #ccc;
-    //background: rgba(100,100,100,0.1);
   }
 
   .inner {
     position: relative;
     cursor: pointer;
-    padding-left: 8px;
     height: 35px;
     font-family: 'Roboto', Inconsolata, 'Myrica', Monaco, Consolas, Courier;
     color: $white;
     font-size: 14px;
+
   }
 
   .node {
@@ -81,7 +74,7 @@
 
   .caret-right:before {
     position: absolute;
-    right: 2px;
+    right: 0px;
     top: 10px;
     font-family: "Material Icons";
     content: "keyboard_arrow_right";
@@ -93,7 +86,7 @@
 
   .caret-down:before {
     position: absolute;
-    right: 1px;
+    right: 0px;
     top: 10px;
     font-family: "Material Icons";
     content: "keyboard_arrow_down";
