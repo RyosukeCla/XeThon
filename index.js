@@ -13,6 +13,8 @@ const ipcMain = electron.ipcMain;
 const BrowserWindow = electron.BrowserWindow;
 const ROOT_PATH = `file://${__dirname}`;
 
+global.homeDir = app.getPath('home');
+
 app.on("ready", e => {
   const mainWindow = new BrowserWindow(
     {

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 //reducers imports
+import projectManager from './projectManager/reducer';
 import confirmationDialog from './confirmationDialog/reducer';
 import oneTextFieldDialog from './oneTextFieldDialog/reducer';
 import statusDialog from './statusDialog/reducer';
@@ -12,6 +13,7 @@ import layout from './layout/reducer';
 
 const rootReducer = combineReducers({
 //reducers
+  projectManager,
   confirmationDialog,
   oneTextFieldDialog,
   statusDialog,

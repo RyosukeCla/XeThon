@@ -11,7 +11,6 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 class ConfirmationDialog extends Component {
-
   constructor(props) {
     super(props);
 

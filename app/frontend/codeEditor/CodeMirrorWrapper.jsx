@@ -22,11 +22,15 @@ require("../../modules/show-invisibles");
 import debounce from 'lodash.debounce';
 import performance from '../../modules/performance';
 
+
 export default class CodeMirrorWrapper extends Component {
 
   static get propTypes() {
     return {
       codeMirrorInstance: PropTypes.func,
+      onChange: PropTypes.func,
+      onSave: PropTypes.func,
+      onContextMenu: PropTypes.func,
     };
   }
 
@@ -53,10 +57,10 @@ export default class CodeMirrorWrapper extends Component {
   }
 
   componentWillUnmount () {
-		if (this.codeMirror) {
-			this.codeMirror.toTextArea();
-		}
-	}
+    if (this.codeMirror) {
+      this.codeMirror.toTextArea();
+    }
+  }
 
   componentDidMount() {
     const options = {
@@ -91,6 +95,23 @@ export default class CodeMirrorWrapper extends Component {
         });
       }
     }, 200));
+    const onChange = this.props.onChange;
+    this.codeMirror.on("change", debounce(function(cm, e) {
+      onChange(cm, e);
+    }, 500));
+
+    const onSave = this.props.onSave;
+    CodeMirror.commands.save = function(cm) {
+      onSave(cm);
+    }
+
+    const onContextMenu = this.props.onContextMenu;
+    this.codeMirror.on("mousedown", function(cm, e) {
+      let isRight = e.which === 3;
+      if(isRight){
+        onContextMenu(cm, e);
+      }
+    });
   }
 
   onCompositionStart(e) {
@@ -103,7 +124,7 @@ export default class CodeMirrorWrapper extends Component {
 
   render() {
     performance("CodeMirrorWrapper");
-    
+
     return (
       <div className="CodeMirrorContainer">
         <textarea
