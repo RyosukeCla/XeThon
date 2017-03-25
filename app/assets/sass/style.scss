@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+//config
+@import "config/config";
+@import "config/color-palette";
+@import "config/theme";
+@import "config/onedark-theme";
+
+//reset
+@import "common/reset";
+
+//components
+@import "components/orderedFileMenu";
+@import "components/app";
+@import "components/header";
+@import "components/codeEditor";
+@import "components/resizableLayout";
+@import "components/header";
+@import "components/flex-container.scss";
+@import "components/resizable-flex-box";
+@import "components/resize-handle";

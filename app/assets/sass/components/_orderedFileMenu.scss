@@ -1,0 +1,105 @@
+.TreeContainer {
+  //background: $midnightblue;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.f-no-select {
+  -webkit-user-select: none;
+  //-khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.m-tree {
+  position: relative;
+  overflow: hidden;
+  @extend .f-no-select;
+
+  // project root node style
+  > .m-node {
+    > .inner {
+      position: relative;
+      pointer-events: none;
+    }
+  }
+}
+
+.m-draggable {
+  position: absolute;
+  opacity: 0.8;
+  @extend .f-no-select;
+}
+
+.m-node {
+  &.placeholder > * {
+    visibility: hidden;
+  }
+
+  &.placeholder {
+  }
+
+  .inner {
+    position: relative;
+    cursor: pointer;
+    height: 35px;
+    font-family: 'Roboto', Inconsolata, 'Myrica', Monaco, Consolas, Courier;
+    color: $white;
+    font-size: 14px;
+
+  }
+
+  .node {
+    display: inline-block;
+    width: 100%;
+    height: 21px;
+    padding: 6px 5px 4px 5px;
+
+    &.is-active {
+      background-color: rgba(200,2000,200,0.1);
+    }
+  }
+
+  .collapse {
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+  }
+
+  .caret-right {
+    position: relative;
+  }
+
+  .caret-right:before {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    font-family: "Material Icons";
+    content: "keyboard_arrow_right";
+  }
+
+  .caret-down {
+    position: relative;
+  }
+
+  .caret-down:before {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    font-family: "Material Icons";
+    content: "keyboard_arrow_down";
+  }
+}
+
+.tree {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  //background-color: #21252B;
+}

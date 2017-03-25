@@ -6,7 +6,16 @@
   "scripts": {
     "start": "NODE_ENV=development electron .",
     "build": "NODE_ENV=production electron-packager . XeThon --platform darwin -arch x64 --overwrite",
+    "sass": "NODE_ENV=development gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0",
+      "stage-3"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -15,14 +24,28 @@
     "babel-core": "^6.22.1",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "codemirror": "^5.23.0",
     "electron": "^1.4.15",
     "electron-packager": "^8.5.1",
+    "immutable": "^3.8.1",
+    "lodash.debounce": "^4.0.8",
+    "material-design-icons": "^3.0.1",
+    "material-ui": "^0.16.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
+    "react-swipeable-views": "^0.10.7",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-tooltip": "^3.2.6",
+    "react-ui-tree": "^2.6.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {
-    "electron-packager": "^8.5.1"
+    "electron-packager": "^8.5.1",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.3",
+    "gulp-sass": "^3.1.0"
   }
 }

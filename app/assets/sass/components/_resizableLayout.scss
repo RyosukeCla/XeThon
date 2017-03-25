@@ -1,0 +1,16 @@
+.ResizableLayout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: $layoutHeight;
+}
+
+.ResizableBox {
+
+}
+
+.ResizeHandle {
+  height: inherit;
+  width: 5;
+  flex-shrink: 1;
+}

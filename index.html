@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>XeThon</title>
+  <link rel="stylesheet" type="text/css"
+        href="./node_modules/codemirror/addon/hint/show-hint.css">
+  <link rel="stylesheet" type="text/css"
+        href="./node_modules/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" type="text/css"
+        href="./app/assets/css/style.css">
 </head>
 
 <body>
@@ -14,7 +20,13 @@ window.onload = function() {
   require("babel-core/register")({
     "presets": ["es2015", "react"]
   });
+
+  // codemirror addon
+  require("codemirror/lib/codemirror");
+  require("codemirror/addon/selection/active-line");
+
   require("./app/frontend/Main");
+
 }
 </script>
 

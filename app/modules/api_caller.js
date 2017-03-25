@@ -6,7 +6,7 @@ const childProcess = require('child_process');
   args: { api: python api name, json: args for python api}
   return: api result with json format
 */
-var moduleApiCaller = {
+const moduleApiCaller = {
   callApi: function(args) {
     console.log("call api: " + args);
     var result = null;

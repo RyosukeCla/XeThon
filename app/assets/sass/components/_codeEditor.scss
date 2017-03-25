@@ -1,0 +1,72 @@
+.CodeEditor {
+  height: inherit;
+
+  .public-DraftEditor-content {
+    height: $layoutHeight;
+    overflow: auto;
+  }
+}
+
+.CodeMirrorContainer {
+  height: inherit;
+}
+
+.CodeMirrorTextarea {
+  font-family: Inconsolata, 'Myrica', Monaco, Consolas, Courier;
+  font-size: 11pt;
+  //line-height: 1.5em;
+}
+
+.CodeMirror {
+  div {
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier !important;
+    font-size: 11pt;
+    line-height: 1.6em;
+  }
+  height: inherit;
+  //line-height: 1.4em;
+
+  background-color: $editor-bg !important;
+
+  textarea {
+    font-size: 16pt;
+  }
+}
+
+
+.CodeMirror-focused {
+
+}
+
+.CodeMirror-gutters {
+  border-right: none;
+  background-color: $editor-bg !important;
+  white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+  color: $editor-gutters-font !important;
+}
+
+.CodeMirror-selected {
+  background-color: $bluegray600;
+}
+
+.CodeMirror-activeline-gutter {
+  background-color: rgba(204, 217, 255, 0.2);
+}
+
+.CodeMirror-gutter-elt {
+  color: rgb(200,200,210);
+}
+
+.CodeMirror-activeline-background {
+  //background-color: $editor-cursor;
+  background: rgba(204, 217, 255, 0.1);
+}
+
+
+.cm-tab {
+  border-left: 1px solid #404F7D;
+  position: relative;
+}
