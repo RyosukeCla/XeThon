@@ -8,6 +8,9 @@ const initialState = {
     children: [{
       module: "test",
       isSaved: true,
+    }, {
+      module: "section1",
+      isSaved: true,
     }],
   },
   anchorEl: null,
