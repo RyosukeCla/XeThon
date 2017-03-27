@@ -1,9 +1,5 @@
 import React, {PropTypes, Component} from 'react';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { changeMenu } from './actions';
-
 import FontIcon from 'material-ui/FontIcon';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Divider from 'material-ui/Divider';
@@ -13,7 +9,7 @@ import uuid from '../../modules/uuidGen';
 import performance from '../../modules/performance';
 import Theme from '../theme/xethonTheme';
 
-class TabMenu extends Component {
+export default class TabMenu extends Component {
   static get propTypes() {
     return {
       style: PropTypes.object,
@@ -42,10 +38,13 @@ class TabMenu extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      slideIndex: 0,
+    };
   }
 
   handleChange(value) {
-    this.props.changeMenu(value);
+    this.setState({slideIndex: value});
   };
 
   render() {
@@ -85,7 +84,7 @@ class TabMenu extends Component {
           {tabElements}
         </Tabs>
         <SwipeableViews
-            index={this.props.slideIndex}
+            index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
             style={swipeableViewsStyle}
             containerStyle={containerStyle}
@@ -96,18 +95,3 @@ class TabMenu extends Component {
     );
   }
 }
-
-function mapStateToProps(state, ownProps) {
-  return {
-    slideIndex: state.tabMenu.slideIndex,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeMenu }, dispatch);
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TabMenu);
