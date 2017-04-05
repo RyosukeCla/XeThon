@@ -19,17 +19,26 @@ class ProjectManager extends Component {
   files: [
     {
       filename: "section 1",
-      index: 1,
       isSaved: true or false,
       content: "hogehoge",
     },
     {
       filename: "section 2",
-      index: 2,
       isSaved: true or false,
       content: "hagehage",
     },
   ],
+  tree: {
+    module: "Project",
+    isSaved: true,
+    children: [{
+      module: "test",
+      isSaved: true,
+    }, {
+      module: "section 1",
+      isSaved: true,
+    }],
+  },
  */
 function mapStateToProps(state, ownProps) {
   return {

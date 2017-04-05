@@ -5,15 +5,27 @@ export default function(CodeMirror) {
     return CodeMirror.multiplexingMode(
       pythonMode,
       {
-        open: '"', close: '"',
+        open: 'r"', close: '"',
         mode: texMode,
       },
       {
-        open: "'", close: "'",
+        open: "r'", close: "'",
         mode: texMode,
       },
       {
-        open: '"""', close: '"""',
+        open: 'r"""', close: '"""',
+        mode: texMode,
+      },
+      {
+        open: 'R"', close: '"',
+        mode: texMode,
+      },
+      {
+        open: "R'", close: "'",
+        mode: texMode,
+      },
+      {
+        open: 'R"""', close: '"""',
         mode: texMode,
       },
     );
