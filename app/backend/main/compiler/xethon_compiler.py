@@ -8,6 +8,7 @@ class XethonCompiler:
         tokens = self.tokenizer.tokenize(str_val)
 
     def hage(self, tokens):
+        # TODO: Compiledを２つに分ける。テキスト用とそれをリプレイスする用。
         compiled = "res = ''"
         is_inline_mode = False
         is_python_mode = False

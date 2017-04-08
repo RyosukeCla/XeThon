@@ -2,6 +2,9 @@
 
 super tex IDE
 
+# Current Progress
+![current progress](./for_readme/current_view.png)
+
 ## Setup
 If nodejs isn't installed in your os, you need to install nodejs. Though there are several ways to install nodejs, I show you one way.
 
