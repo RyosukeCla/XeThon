@@ -1,56 +1,86 @@
 import re
+import sys
+from cStringIO import StringIO
 
 class XethonCompiler:
     def __init__(self):
         self.tokenizer = XethonTokenizer()
 
-    def hoge(self, str_val):
+    def compile(self, str_val):
         tokens = self.tokenizer.tokenize(str_val)
+        res = ''
 
-    def hage(self, tokens):
-        # TODO: Compiledを２つに分ける。テキスト用とそれをリプレイスする用。
-        compiled = "res = ''"
-        is_inline_mode = False
-        is_python_mode = False
+        old_stdout = sys.stdout
+        redirected_output = sys.stdout = StringIO()
         for token in tokens:
-            if token == '<<':
-                is_inline_mode = True
-                pass
-            elif token == '>>':
-                is_inline_mode = False
-                pass
-            elif token == '<<<':
-                is_python_mode = True
-                pass
-            elif token == '>>>':
-                is_python_mode = False
-                pass
-            else:
-                if is_inline_mode:
-                    compiled += "\nres += '$' + {0} + '$'".format(token)
-                elif is_python_mode:
-                    compiled += "\n{0}".format(token)
-                else:
-                    compiled += '\nres += """{0}"""'.format(token)
-                pass
+            if token['mode'] == self.tokenizer.TEX:
+                res += token['data']
+            elif token['mode'] == self.tokenizer.INLINE:
+                exec("print('$' + {0} + '$')".format(token['data']))
+                sys.stdout = old_stdout
+                res += redirected_output.getvalue()
+            elif token['mode'] == self.tokenizer.PYTHON:
+                exec(token['data'])
+                sys.stdout = old_stdout
+                res += redirected_output.getvalue()
+                #res += self.exec_output(token['data'])
+        return res
 
-        compiled += "\nf = open('test.tex', 'w')"
-        compiled += "\nf.write(res)"
-        compiled += "\nf.close()"
 
-        return compiled
+
+    def exec_output(self, code):
+
+        exec(code)
+
+
+
 
 
 class XethonTokenizer:
 
     def __init__(self):
-        self.tokenizer = Tokenizer(['(\\\\<|\\\\>)', '(<|>)'])
-
+        self.tokenizer = Tokenizer(['(\\\\<|\\\\>)', '(<|>)', '"'])
+        self.INLINE = 'INLINE'
+        self.PYTHON = 'PYTHON'
+        self.TEX = 'TEX'
         pass
 
     def tokenize(self, str_val):
+        tokens = self.pre_tokenize(str_val)
+        is_inline_mode = False
+        is_python_mode = False
+        res = [{'mode':self.TEX, 'data':''}]
+        for token in tokens:
+            if token == '<<':
+                is_inline_mode = True
+                res.append({'mode':self.INLINE, 'data':''})
+            elif token == '>>':
+                is_inline_mode = False
+            elif token == '<<<':
+                res.append({'mode':self.PYTHON, 'data':''})
+                is_python_mode = True
+            elif token == '>>>':
+                is_python_mode = False
+            else:
+                if is_inline_mode:
+                    res[-1]['data'] += token
+                elif is_python_mode:
+                    res[-1]['data'] += token
+                else:
+                    temp = token
+                    if temp == '"':
+                        temp = '\"'
+                    if res[-1]['mode'] == self.TEX:
+                        res[-1]['data'] += temp
+                    else:
+                        res.append({'mode':self.TEX, 'data':temp})
+
+        return res
+
+
+    def pre_tokenize(self, str_val):
         pre_tokens = self.tokenizer.tokenize(str_val)
-        res = []
+        res = ['']
         is_begin_delimiter_char = False
         is_end_delimiter_char = False
         for token in pre_tokens:
