@@ -10,9 +10,9 @@
     mod(CodeMirror);
 })(function(CodeMirror) {
   var defaults = {
-    pairs: "()[]{}''\"\"<>''",
+    pairs: "()[]{}''\"\"<>$$",
     triples: "",
-    explode: "[]{}<>''"
+    explode: "[]{}<>$$''"
   };
 
   var Pos = CodeMirror.Pos;
