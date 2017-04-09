@@ -10,30 +10,23 @@ class XethonCompiler:
         tokens = self.tokenizer.tokenize(str_val)
         res = ''
 
-        old_stdout = sys.stdout
-        redirected_output = sys.stdout = StringIO()
         for token in tokens:
+            old_stdout = sys.stdout
+            redirected_output = sys.stdout = StringIO()
             if token['mode'] == self.tokenizer.TEX:
                 res += token['data']
             elif token['mode'] == self.tokenizer.INLINE:
                 exec("print('$' + {0} + '$')".format(token['data']))
-                sys.stdout = old_stdout
                 res += redirected_output.getvalue()
             elif token['mode'] == self.tokenizer.PYTHON:
                 exec(token['data'])
-                sys.stdout = old_stdout
                 res += redirected_output.getvalue()
-                #res += self.exec_output(token['data'])
+            sys.stdout = old_stdout
         return res
 
+    def batch_xethon(self, xethon):
 
-
-    def exec_output(self, code):
-
-        exec(code)
-
-
-
+        pass
 
 
 class XethonTokenizer:

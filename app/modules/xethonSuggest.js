@@ -196,7 +196,7 @@ export default function(CodeMirror) {
   );
 
   // python Regex - function, variable
-  const WORD = /(\b[a-zA-Z][a-zA-Z0-9]*(?= *\()|\b[a-zA-Z][a-zA-Z0-9]*(?= *=))/, RANGE = 500;
+  const WORD = /(\b[a-zA-Z_][a-zA-Z0-9_]*(?= *\()|\b[a-zA-Z_][a-zA-Z0-9_]*(?= *=))/, RANGE = 500;
 
   function anywords(editor, options) {
     var word = options && options.word || WORD;

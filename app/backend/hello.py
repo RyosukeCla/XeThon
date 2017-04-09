@@ -11,13 +11,21 @@ def test():
 def nest(x):
     return r'\begin{}' + x + r'\end{}'
 fx = test()
+def list(items):
+    for item in items:
+        print('- ' + item)
 >>>
 hello world. <<fx>>
 <<<
 ts = nest(fx)
 >>>
 
-hello world. <<ts>>
+hello world. <<ts>> <<nest("aiueo")>>
+test
+
+<<<list(["aiueo", "aiueo2", "ajof"])>>>
+
+<<<list('a')>>>
 """
 
 test_str += r'"""aiueo"""'

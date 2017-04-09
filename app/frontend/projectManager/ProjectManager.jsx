@@ -19,15 +19,21 @@ class ProjectManager extends Component {
   files: [
     {
       filename: "section 1",
-      isSaved: true or false,
-      content: "hogehoge",
+      content: "aiueo"
     },
     {
       filename: "section 2",
-      isSaved: true or false,
-      content: "hagehage",
+      content: "aiueo"
     },
   ],
+  preamble: {
+     isSaved: true or false,
+     content: "aiueo"
+   },
+  postamble: {
+    isSaved: true or false,
+    content: "aiueo"
+  },
   tree: {
     module: "Project",
     isSaved: true,

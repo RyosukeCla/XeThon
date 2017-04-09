@@ -13,20 +13,6 @@
   user-select: none;
 }
 
-.m-tree {
-  position: relative;
-  overflow: hidden;
-  @extend .f-no-select;
-
-  // project root node style
-  > .m-node {
-    > .inner {
-      position: relative;
-      pointer-events: none;
-    }
-  }
-}
-
 .m-draggable {
   position: absolute;
   opacity: 0.8;
@@ -90,6 +76,20 @@
     top: 10px;
     font-family: "Material Icons";
     content: "keyboard_arrow_down";
+  }
+}
+
+.m-tree {
+  position: relative;
+  overflow: hidden;
+  @extend .f-no-select;
+
+  // project root node style
+  > .m-node {
+    > .inner {
+      position: relative;
+      pointer-events: none;
+    }
   }
 }
 
