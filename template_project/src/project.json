@@ -1,0 +1,14 @@
+{
+  "project": "Project Name",
+  "tree": {
+    "module": "Project",
+    "isSaved": true,
+    "children": [{
+      "module": "section 1",
+      "isSaved": true
+    }, {
+      "module": "section 2",
+      "isSaved": true
+    }]
+  }
+}

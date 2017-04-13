@@ -24,10 +24,6 @@ class XethonCompiler:
             sys.stdout = old_stdout
         return res
 
-    def batch_xethon(self, xethon):
-
-        pass
-
 
 class XethonTokenizer:
 

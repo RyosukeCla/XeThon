@@ -16,16 +16,6 @@ class ProjectManager extends Component {
 // TODO: 下の形式のjsonを書き換えたり、色々できるやつ。
 /**
   project: "Project Name"
-  files: [
-    {
-      filename: "section 1",
-      content: "aiueo"
-    },
-    {
-      filename: "section 2",
-      content: "aiueo"
-    },
-  ],
   preamble: {
      isSaved: true or false,
      content: "aiueo"
@@ -34,6 +24,7 @@ class ProjectManager extends Component {
     isSaved: true or false,
     content: "aiueo"
   },
+
   tree: {
     module: "Project",
     isSaved: true,
@@ -48,7 +39,9 @@ class ProjectManager extends Component {
  */
 function mapStateToProps(state, ownProps) {
   return {
-    files: state.projectManager.files,
+    project: state.projectManager.project,
+    project_path: state.projectManager.project_path,
+    tree: state.projectManager.tree,
   };
 }
 

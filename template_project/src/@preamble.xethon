@@ -1,0 +1,6 @@
+\documentclass[a4j,12pt]{jreport}
+\title{Xethon Sample}
+\author{John Doe}
+\date{\today}
+\begin{document}
+\maketitle

@@ -1,4 +1,4 @@
-import main.maker.project as pr
+import main.compiler.project as pr
 import main.compiler.xethon_compiler as xc
 import os
 
@@ -34,3 +34,5 @@ xcom = xc.XethonCompiler()
 res = xcom.compile(test_str)
 
 print(res)
+
+print(os.getcwd())

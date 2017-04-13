@@ -1,4 +1,4 @@
-import main.maker.project as pr
+import main.compiler.project as pr
 
 template = pr.Project('./template_project')
 template.make()
